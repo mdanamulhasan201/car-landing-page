@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "On—Demand Vehicle Access",
+        "description": "Unlike traditional leasing, we provide short-term and long-term vehicle solutions with subscription and pay-as-you-go options, giving businesses flexibility without the burden of ownership.",
+        "image": "/carousel/car.png"
+    },
+    {
+        "id": 2,
+        "title": "Smart Fleet Management",
+        "description": "Our car management platform provides real-time GPS tracking, fuel and toll management, and mileage monitoring, ensuring complete transparency and cost control.",
+        "image": "/carousel/batch.png"
+    },
+    {
+        "id": 3,
+        "title": "Hybrid & Well-Maintained Vehicles",
+        "description": "We provide a modern fleet of fuel-efficient hybrids and premium vehicles, ensuring top-tier performance, reliability, and reduced emissions for your business.",
+        "image": "/carousel/hours.png"
+    },
+    {
+        "id": 4,
+        "title": "Hybrid & Well-Maintained Vehicles",
+        "description": "We provide a modern fleet of fuel-efficient hybrids and premium vehicles, ensuring top-tier performance, reliability, and reduced emissions for your business.",
+        "image": "/carousel/hours.png"
+    },
+    {
+        "id": 5,
+        "title": "Hybrid & Well-Maintained Vehicles",
+        "description": "We provide a modern fleet of fuel-efficient hybrids and premium vehicles, ensuring top-tier performance, reliability, and reduced emissions for your business.",
+        "image": "/carousel/hours.png"
+    },
+    {
+        "id": 6,
+        "title": "Hybrid & Well-Maintained Vehicles",
+        "description": "We provide a modern fleet of fuel-efficient hybrids and premium vehicles, ensuring top-tier performance, reliability, and reduced emissions for your business.",
+        "image": "/carousel/hours.png"
+    }
+]
