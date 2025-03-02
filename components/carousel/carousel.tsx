@@ -145,8 +145,8 @@ export default function Carousel() {
     };
 
     return (
-        <div className='container px-10' id='services'  >
-            <div className='flex flex-col md:flex-row justify-between items-center gap-10 mt-20'>
+        <div className='container px-4 sm:px-6 lg:px-8 py-20' id='services'  >
+            <div className='flex flex-col md:flex-row justify-between items-center gap-10'>
                 <div className='w-full md:w-8/12'>
                     <h1 className='text-[24px] md:text-[48px] font-syne font-[700] leading-[28px] md:leading-[57px] text-[#036]'>
                         Drive Your Business Forward with Laskar & Co Auto
@@ -222,5 +222,6 @@ export default function Carousel() {
                 </div>
             </div>
         </div>
+
     )
 }
