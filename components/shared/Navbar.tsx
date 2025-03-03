@@ -231,9 +231,9 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href='#WhyChooseUs'
-                  onClick={() => handleLinkClick('#WhyChooseUs')}
-                  className={`text-[20px] font-nunito-sans font-[500] transition-colors block w-full px-4 py-2 rounded-full text-left ${activeLink === '#WhyChooseUs' ? 'bg-[#036] text-white' : 'hover:text-[#036]'
+                  href='#why-choose-us'
+                  onClick={() => handleLinkClick('#why-choose-us')}
+                  className={`text-[20px] font-nunito-sans font-[500] transition-colors block w-full px-4 py-2 rounded-full text-left ${activeLink === '#why-choose-us' ? 'bg-[#036] text-white' : 'hover:text-[#036]'
                     }`}
                 >
                   Why Choose Us

@@ -74,9 +74,9 @@ export default function HowWorks() {
   }, [stepsData, activeStep]);
 
   return (
-    <div className='container px-4 sm:px-6 lg:px-8 py-16'>
+    <div className='container px-4 sm:px-6 lg:px-8 py-16' id='how-it-works'>
       <div className='flex flex-col lg:flex-row justify-between items-stretch gap-8'>
-        
+
         <div className='md:hidden'>
           <h1 className='text-[#036] text-[40px] xl:text-[48px] font-[700] leading-[57px] font-syne mb-4 flex-grow-0'>How It Works</h1>
           <p className='text-[#4A4C56] text-[14px] md:text-[18px] font-[400] leading-[25px] mb-8 flex-grow-0'>
@@ -84,7 +84,7 @@ export default function HowWorks() {
           </p>
         </div>
         {/* left side */}
-        <div className='bg-[#F6FAFE] py-10 px-2 md:px-8 rounded-lg w-full lg:w-[50%] flex flex-col'>
+        <div className='bg-[#F6FAFE] border border-[#E8F2FC] py-10 px-2 md:px-8 rounded-lg w-full lg:w-[50%] flex flex-col'>
           <div className='relative flex-grow-0'>
             <div className='relative w-full max-w-2xl mx-auto'>
               <div className='relative z-10'>
@@ -124,21 +124,21 @@ export default function HowWorks() {
               <div className='grid grid-cols-3 gap-4 mt-4'>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/car.png" alt="Channel1" width={24} height={24} className='w-6 md:w-12'/>
+                    <Image src="/works/car.png" alt="Channel1" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>Channel1</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>A Sonic</p>
                 </div>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/batch.png" alt="Expro One" width={24} height={24} className='w-6 md:w-12'/>
+                    <Image src="/works/batch.png" alt="Expro One" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>Expro One</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>600 Hz</p>
                 </div>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/dashboard.png" alt="MacSonic" width={24} height={24} className='w-6 md:w-12'/>
+                    <Image src="/works/dashboard.png" alt="MacSonic" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>MacSonic</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>400 km/h</p>
