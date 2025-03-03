@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Incredible Experience",
+        "description": "We had an incredible experience working with Laskar &Co and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the concept so quickly.",
+        "user": "Wade Warren",
+        "position": "CEO",
+        "company": "ABC Corporation",
+        "image": "/successStories/Photo1.png"
+    },
+    {
+        "id": 2,
+        "title": "Dependable, Responsive, Professional",
+        "description": "We had an incredible experience working with Laskar &Co and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the concept so quickly.",
+        "user": "Esther Howard",
+        "position": "CEO",
+        "company": "ABC Corporation",
+        "image": "/successStories/Photo.png"
+    },
+    {
+        "id": 3,
+        "title": "Incredible Experience",
+        "description": "We had an incredible experience working with Laskar &Co and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the concept so quickly.",
+        "user": "Wade Warren",
+        "position": "CEO",
+        "company": "ABC Corporation",
+        "image": "/successStories/Photo1.png"
+    },
+    {
+        "id": 4,
+        "title": "Dependable, Responsive, Professional",
+        "description": "We had an incredible experience working with Laskar &Co and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the concept so quickly.",
+        "user": "Esther Howard",
+        "position": "CEO",
+        "company": "ABC Corporation",
+        "image": "/successStories/Photo.png"
+    }
+]

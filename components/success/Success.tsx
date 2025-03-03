@@ -14,7 +14,7 @@ interface CarouselItem {
     icon?: string;
 }
 
-export default function Carousel() {
+export default function Success() {
     const [data, setData] = useState<CarouselItem[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [windowWidth, setWindowWidth] = useState(0)

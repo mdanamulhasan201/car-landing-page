@@ -7,15 +7,19 @@ const syne = Syne({
   subsets: ["latin"],
 });
 
+
 const nunito = Nunito({
   variable: "--font-nunito",
+
   subsets: ["latin"],
 });
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
+
 });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,6 +38,39 @@ export default function RootLayout({
       >
         {children}
       </body>
+
     </html>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+>
+                      )}
+                    </div>
+                    <div className="ms-2">
+                      <h4 className="text-[20px] font-[600] font-syne text-[#1D1F2C]">{(story as any)?.user}</h4>
+                      <p className="text-[#4A4C56] text-[16px] font-[400] font-nunito-sans opacity-[0.5]">
+                        {(story as any).position}, {(story as any)?.company}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+
+          {/* Custom dots navigation */}
+          <CustomDots
+            slides={data}
+            currentSlide={activeSlide}
+          />
+        </div

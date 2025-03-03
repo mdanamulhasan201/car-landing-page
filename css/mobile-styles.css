@@ -1,0 +1,15 @@
+@media screen and (max-width: 768px) {
+    .right-element {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .left-element {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+}

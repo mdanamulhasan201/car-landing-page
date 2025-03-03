@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
+html{
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-nunito), var(--font-syne), var(--font-nunito-sans), Arial, Helvetica, sans-serif;
+
 }
 
 .font-nunito {
@@ -25,3 +29,5 @@ body {
 .slick-prev, .slick-next{
   display: none !important;
 }
+
+
