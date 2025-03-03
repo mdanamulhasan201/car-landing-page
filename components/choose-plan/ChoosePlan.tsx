@@ -1,0 +1,123 @@
+'use client'
+import React from 'react'
+import { Check, CheckCircle, DollarSign } from 'lucide-react'
+import { Button } from '../ui/button'
+
+export default function ChoosePlan() {
+    return (
+        <div className="bg-white lg:[background:linear-gradient(209deg,#318CE7_-14.94%,#BEDAF7_107.26%)] py-24">
+            <div className="container mx-auto px-4 md:px-6">
+                {/* Title Section */}
+                <div className="mb-12 text-center max-w-5xl mx-auto">
+                    <h2 className="text-[28px] md:text-[48px] font-[700] leading-[50px] text-white mb-4 font-syne ">
+                        A Smarter Way to Drive – Flexible Corporate Solutions
+                    </h2>
+                    <p className="text-[16px] md:text-[18px] font-[400] text-white leading-[24px] font-nunito-sans mt-5">
+                        Your business needs reliable transportation without the hassle of ownership. Our subscription plans offer predictable pricing, seamless management, and all-inclusive benefits—so you can stay focused on what matters most.
+                    </p>
+                </div>
+
+
+                <div className="hidden lg:grid grid-cols-12 gap-6 bg-white rounded-[12px] p-10">
+                    {/* Desktop Layout */}
+                    {/* Features Column */}
+                    <div className="col-span-4">
+                        <div className=" rounded-t-lg ">
+                            <h1 className=" text-[32px] font-[700]  leading-[41px] "> <span className='text-[#036]'>Choose a plan</span> that works for you</h1>
+                        </div>
+                        <ul className="space-y-6 mt-3 ">
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans">
+                                Car Rentals <span className="text-[#4A4C56] opacity-70 text-[18px] font-[400]">(up to 15 days/month)</span>
+                            </li>
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans leading-[36px]">Bundled Insurance</li>
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans leading-[36px]">Prepaid Gas Tank Refill</li>
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans leading-[36px]">Access to Management System</li>
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans leading-[36px]">Fleet Tracking & Expense Management</li>
+                            <li className="text-[20px] text-[#036] font-[500] font-nunito-sans">
+                                Free Vehicle Delivery <span className="text-[#4A4C56] opacity-70 text-[18px] font-[400]">(included in 25-day plan)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Desktop Laskar Column */}
+                    <div className="col-span-4 bg-[#036] rounded-[12px]  pb-4">
+                        <div className=" rounded-t-lg py-4 border-b border-gray-400">
+                            <h3 className="text-[24px] font-[700] text-center text-white text-syne">Laskar & Co Auto</h3>
+                        </div>
+                        <ul className="space-y-10 p-6">
+                            {[...Array(5)].map((_, i) => (
+                                <li key={i} className="flex justify-center">
+                                    {/* <CheckCircle  /> */}
+                                    <Check className="w-6 h-6 p-[2px] bg-white rounded-full text-[#003366]" />
+                                </li>
+                            ))}
+                        </ul>
+                        <div className='px-5'>
+                            <button className="w-full  py-3 bg-[#1978D8] text-white rounded-md text-[16px] font-semibold hover:bg-[#1565C0] transition-colors">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Desktop Traditional Column */}
+                    <div className="col-span-4 bg-[#036] rounded-[12px] ">
+                        <div className="bg-[#036] rounded-t-lg py-4 border-b border-gray-400">
+                            <h3 className="text-[24px] font-[700] text-center text-white text-syne">Traditional</h3>
+                        </div>
+                        <ul className="space-y-10  rounded-b-lg p-6">
+                            {[...Array(6)].map((_, i) => (
+                                <li key={i} className="flex justify-center">
+                                    <DollarSign className="w-6 h-6 p-[2px] bg-white rounded-full text-[#003366]" />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Mobile Layout */}
+                <div className="lg:hidden space-y-6">
+                    {/* Mobile Laskar Section */}
+                    <div className="bg-[#036] rounded-lg p-6">
+                        <h3 className="text-[24px] font-semibold text-white mb-6">Laskar & Co Auto</h3>
+                        <ul className="space-y-6">
+                            {[
+                                'Car Rentals',
+                                'Bundled Insurance',
+                                'Prepaid Gas Tank Refill',
+                                'Access to Management System',
+                                'Fleet Tracking & Expense Management'
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center justify-between text-white">
+                                    <span>{item}</span>
+                                    <CheckCircle className="w-6 h-6 text-white" />
+                                </li>
+                            ))}
+                        </ul>
+                        <Button className="w-full mt-6 py-3 bg-[#1978D8] text-white rounded-md text-[16px] font-[400] text-syne">
+                            Get Started
+                        </Button>
+                    </div>
+
+                    {/* Mobile Traditional Section */}
+                    <div className="bg-[#036] rounded-lg p-6">
+                        <h3 className="text-[24px] font-semibold text-white mb-6">Traditional</h3>
+                        <ul className="space-y-6">
+                            {[
+                                'Car Rentals',
+                                'Bundled Insurance',
+                                'Prepaid Gas Tank Refill',
+                                'Access to Management System',
+                                'Fleet Tracking & Expense Management'
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center justify-between text-white">
+                                    <span>{item}</span>
+                                    <DollarSign className="w-6 h-6 text-white" />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

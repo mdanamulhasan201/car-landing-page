@@ -132,8 +132,22 @@ export default function SuccessStories() {
   }
 
   return (
-    <div className="py-16 bg-gray-50" ref={sectionRef}>
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="relative pb-48 " ref={sectionRef}> 
+      {/* Background Image Container */}
+      <div
+        className="absolute inset-0 w-full h-full bg-no-repeat bg-center
+          [background-size:200%_110%]
+          sm:[background-size:90%_100%]
+          md:[background-size:85%_100%]
+          lg:[background-size:80%_100%]
+          xl:[background-size:90%_110%]"
+        style={{
+          backgroundImage: `url(${bgImg.src})`,
+          opacity: 0.07
+        }}
+      ></div>
+
+      <div className="container top-20 mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> 
         <h2 
           ref={titleRef}
           className="text-[24px] md:text-[48px] font-[700] text-[#036] text-center mb-10 font-syne"

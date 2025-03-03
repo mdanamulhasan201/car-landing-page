@@ -5,6 +5,7 @@ import WhoWeAre from '@/components/who-we-are/WhoWeAre'
 import React from 'react'
 import SuccessStories from '@/components/success-stories/SuccessStories'
 import Success from '@/components/success/Success'
+import ChoosePlan from '@/components/choose-plan/ChoosePlan'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HowWorks />
       <WhoWeAre />
       <SuccessStories />
+      <ChoosePlan />
     </>
   )
 }
