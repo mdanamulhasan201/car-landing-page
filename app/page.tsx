@@ -6,6 +6,7 @@ import React from 'react'
 import SuccessStories from '@/components/success-stories/SuccessStories'
 import Success from '@/components/success/Success'
 import ChoosePlan from '@/components/choose-plan/ChoosePlan'
+import WhyChoose from '@/components/WhyChoose'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <WhoWeAre />
       <SuccessStories />
       <ChoosePlan />
+      <WhyChoose />
     </>
   )
 }
