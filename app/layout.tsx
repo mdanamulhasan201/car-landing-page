@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito, Nunito_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
+import SmoothScroll from "@/components/shared/SmoothScroll";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -33,8 +34,10 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${nunito.variable} ${nunitoSans.variable} antialiased`}
       >
-        {children}
-        <Footer />
+        <SmoothScroll>
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

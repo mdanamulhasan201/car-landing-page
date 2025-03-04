@@ -1,11 +1,31 @@
 @import "tailwindcss";
 
-html{
-  scroll-behavior: smooth;
+/* Remove previous smooth scroll styles */
+html {
+  overflow-x: hidden;
 }
+
 body {
   font-family: var(--font-nunito), var(--font-syne), var(--font-nunito-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
 
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f8fe;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1978D8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1565C0;
 }
 
 .font-nunito {
@@ -28,6 +48,19 @@ body {
 }
 .slick-prev, .slick-next{
   display: none !important;
+}
+
+/* Update smooth scroll styles */
+#smooth-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+#smooth-content {
+  width: 100%;
+  transform-origin: top;
+  will-change: transform;
 }
 
 
