@@ -35,16 +35,20 @@ export default function Footer() {
                     {/* Newsletter Section */}
                     <div className="md:col-span-4">
                         <h3 className="text-[#1D1F2C] text-[18px] font-[600] mb-6 font-syne">Newsletter</h3>
-                        <div className="flex items-center  rounded-[8px] p-1 border border-[#BEDAF7]">
-                            <input
-                                type="email"
-                                placeholder="Enter Your Email"
-                                className="flex-1 px-4 py-2 bg-transparent focus:outline-none text-[#4A4C56] placeholder:text-[#4A4C56]"
-                            />
-                            <button className="bg-[#1978D8] text-white px-8 py-2 rounded-[8px] font-[400] hover:bg-[#1565C0] transition-colors text-[16px]">
-                                Submit
-                            </button>
+                        <div className="md:col-span-4">
+                            <h3 className="text-[#1D1F2C] text-[18px] font-[600] mb-6 font-syne">Newsletter</h3>
+                            <div className="flex  items-stretch md:items-center gap-2 md:gap-0 rounded-[8px] p-1 border border-[#BEDAF7]">
+                                <input
+                                    type="email"
+                                    placeholder="Enter Your Email"
+                                    className="w-full md:flex-1 px-4 py-2 bg-transparent focus:outline-none text-[#4A4C56] placeholder:text-[#4A4C56]"
+                                />
+                                <button className="md:w-auto bg-[#1978D8] text-white px-4 md:px-6 lg:px-8 py-2 rounded-[8px] font-[400] hover:bg-[#1565C0] transition-colors text-[14px] md:text-[15px] lg:text-[16px]">
+                                    Submit
+                                </button>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 

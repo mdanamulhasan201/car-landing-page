@@ -1,6 +1,5 @@
 "use client"
 import React, { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import bgImg from '@/public/whoWeAre/background.png'
 import img from '@/public/whoWeAre/Corporate.png'
 import Carimg from '@/public/whoWeAre/CarImage.png'
@@ -23,14 +22,14 @@ export default function WhoWeAre() {
             // Title animation
             gsap.fromTo(
                 titleRef.current,
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 100 },
                 {
                     opacity: 1,
                     y: 0,
                     duration: 1,
                     scrollTrigger: {
                         trigger: titleRef.current,
-                        start: 'top 80%',
+                        start: 'top 10%',
                         toggleActions: 'play none none reverse'
                     },
                 }
@@ -39,7 +38,7 @@ export default function WhoWeAre() {
             // Description animation
             gsap.fromTo(
                 descriptionRef.current,
-                { opacity: 0, y: 30 },
+                { opacity: 0, y: 80 },
                 {
                     opacity: 1,
                     y: 0,
@@ -47,7 +46,7 @@ export default function WhoWeAre() {
                     delay: 0.2,
                     scrollTrigger: {
                         trigger: descriptionRef.current,
-                        start: 'top 80%',
+                        start: 'top 10%',
                         toggleActions: 'play none none reverse'
                     },
                 }
@@ -64,7 +63,7 @@ export default function WhoWeAre() {
                     delay: 0.3,
                     scrollTrigger: {
                         trigger: aspirationRef.current,
-                        start: 'top 80%',
+                        start: 'top 10%',
                         toggleActions: 'play none none reverse'
                     },
                 }
@@ -81,7 +80,7 @@ export default function WhoWeAre() {
                     delay: 0.4,
                     scrollTrigger: {
                         trigger: listRef.current,
-                        start: 'top 80%',
+                        start: 'top 10%',
                         toggleActions: 'play none none reverse'
                     },
                 }
@@ -90,15 +89,15 @@ export default function WhoWeAre() {
             // Image container animation
             gsap.fromTo(
                 imageRef.current,
-                { opacity: 0, x: 50 },
+                { opacity: 0, y: 50 },
                 {
                     opacity: 1,
-                    x: 0,
+                    y: 0,
                     duration: 1,
                     delay: 0.5,
                     scrollTrigger: {
                         trigger: imageRef.current,
-                        start: 'top 80%',
+                        start: 'top 10%',
                         toggleActions: 'play none none reverse'
                     },
                 }
@@ -110,8 +109,8 @@ export default function WhoWeAre() {
 
     return (
         <div className="relative" id='who-we-are'>
-            <Image
-                src={bgImg}
+            <CustomImage
+                src={bgImg.src}
                 alt='background'
                 width={1920}
                 height={880}

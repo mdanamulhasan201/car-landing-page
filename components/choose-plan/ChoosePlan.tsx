@@ -1,14 +1,82 @@
 'use client'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Check, DollarSign } from 'lucide-react'
 import { Button } from '../ui/button'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ChoosePlan() {
+    const titleRef = useRef(null);
+    const desktopPlanRef = useRef(null);
+    const mobilePlanRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Title section animation
+            gsap.fromTo(
+                titleRef.current,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 3,
+                    scrollTrigger: {
+                        trigger: titleRef.current,
+                        start: 'top 10%',
+                        end: 'bottom 10%',
+                        toggleActions: 'play none none reverse'
+                    },
+                }
+            );
+
+            // Desktop plan animation
+            gsap.fromTo(
+                desktopPlanRef.current,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: 0.3,
+                    scrollTrigger: {
+                        trigger: desktopPlanRef.current,
+                        start: 'top 10%',
+                        end: 'bottom 10%',
+                        toggleActions: 'play none none reverse'
+                    },
+                }
+            );
+
+            // Mobile plan animation
+            gsap.fromTo(
+                mobilePlanRef.current,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: 0.3,
+                    scrollTrigger: {
+                        trigger: mobilePlanRef.current,
+                        start: 'top 10%',
+                        end: 'bottom 10%',
+                        toggleActions: 'play none none reverse'
+                    },
+                }
+            );
+        });
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <div className="bg-white [background:linear-gradient(209deg,#318CE7_-14.94%,#BEDAF7_107.26%)] py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Title Section */}
-                <div className="mb-12 text-center max-w-5xl mx-auto">
+                <div className="mb-12 text-center max-w-5xl mx-auto" ref={titleRef}>
                     <h2 className="text-[28px] md:text-[48px] font-[700] leading-[33px] md:leading-[50px] text-white mb-4 font-syne ">
                         A Smarter Way to Drive – Flexible Corporate Solutions
                     </h2>
@@ -17,8 +85,8 @@ export default function ChoosePlan() {
                     </p>
                 </div>
 
-
-                <div className="hidden lg:grid grid-cols-12 gap-6 bg-white rounded-[12px] p-10">
+                {/* Desktop Layout */}
+                <div className="hidden lg:grid grid-cols-12 gap-6 bg-white rounded-[12px] p-10" ref={desktopPlanRef}>
                     {/* Desktop Layout */}
                     {/* Features Column */}
                     <div className="col-span-4">
@@ -75,7 +143,7 @@ export default function ChoosePlan() {
                 </div>
 
                 {/* Mobile Layout */}
-                <div className="lg:hidden space-y-6 ">
+                <div className="lg:hidden space-y-6 " ref={mobilePlanRef}>
 
                     {/* Mobile Laskar Section */}
                     <div className="bg-[#036] rounded-lg p-6">

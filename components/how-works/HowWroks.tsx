@@ -1,12 +1,20 @@
 'use client'
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import Image from 'next/image';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import roundedLine from '@/public/works/Ellipse.png'
+import CustomImage from '../Reusable/CustomImage';
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HowWorks() {
   const [activeStep, setActiveStep] = useState(1);
   const descriptionRefs = useRef<HTMLDivElement[]>([]);
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const carSectionRef = useRef(null);
+  const stepsRef = useRef(null);
 
   const stepsData = useMemo(() => [
     {
@@ -56,7 +64,6 @@ export default function HowWorks() {
       });
     }
   };
-
   // Animate the first step's description when the component mounts
   useEffect(() => {
     descriptionRefs.current = descriptionRefs.current.slice(0, stepsData.length);
@@ -71,23 +78,75 @@ export default function HowWorks() {
       });
     }
   }, [stepsData, activeStep]);
-
+  useEffect(() => {
+    // Create a context to ensure proper cleanup
+    const ctx = gsap.context(() => {
+      // Title animation
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 2,
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: 'top 10%',
+            toggleActions: 'play none none reverse'
+          },
+        }
+      );
+      // Car section animation
+      gsap.fromTo(
+        carSectionRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: carSectionRef.current,
+            start: 'top 10%',
+            toggleActions: 'play none none reverse'
+          },
+        }
+      );
+      // Steps animation
+      gsap.fromTo(
+        stepsRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: stepsRef.current,
+            start: 'top 10%',
+            toggleActions: 'play none none reverse'
+          },
+        }
+      );
+    });
+    // Cleanup function
+    return () => ctx.revert();
+  }, []);
   return (
-    <div className='container px-4 sm:px-6 lg:px-8 py-16' id='how-it-works'>
+    <div className='container px-4 sm:px-6 lg:px-8 py-16' id='how-it-works' ref={sectionRef}>
       <div className='flex flex-col lg:flex-row justify-between items-stretch gap-8'>
-
-        <div className='md:hidden'>
+        <div className='md:hidden' ref={titleRef}>
           <h1 className='text-[#036] text-[40px] xl:text-[48px] font-[700] leading-[57px] font-syne mb-4 flex-grow-0'>How It Works</h1>
           <p className='text-[#4A4C56] text-[14px] md:text-[18px] font-[400] leading-[25px] mb-8 flex-grow-0'>
             Our mission is to simplify transportation for businesses with well-maintained, comfortable vehicles and a Corporate Car Management System designed to streamline operations.
           </p>
         </div>
         {/* left side */}
-        <div className='bg-[#F6FAFE] border border-[#E8F2FC] py-10 px-2 md:px-8 rounded-lg w-full lg:w-[50%] flex flex-col'>
+        <div className='bg-[#F6FAFE] border border-[#E8F2FC] py-10 px-2 md:px-8 rounded-lg w-full lg:w-[50%] flex flex-col' ref={carSectionRef}>
           <div className='relative flex-grow-0'>
             <div className='relative w-full max-w-2xl mx-auto'>
               <div className='relative z-10'>
-                <Image
+                <CustomImage
                   src="/works/car3d.png"
                   alt="Car Image"
                   width={600}
@@ -97,13 +156,13 @@ export default function HowWorks() {
               </div>
               <div className='absolute left-0 right-0 -bottom-[25%] w-[95%] mx-auto'>
                 <div className="relative">
-                  <Image
-                    src={roundedLine}
+                  <CustomImage
+                    src={roundedLine.src}
                     alt="Rounded Line"
                     width={500}
                     height={300}
                     className="w-full h-auto object-contain"
-                    priority
+                  
                   />
                   <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-[20%] sm:translate-y-[20%] md:translate-y-[30%]">
                     <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#0D74E0] rounded-full"></div>
@@ -123,21 +182,21 @@ export default function HowWorks() {
               <div className='grid grid-cols-3 gap-4 mt-4'>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/car.png" alt="Channel1" width={24} height={24} className='w-6 md:w-12' />
+                    <CustomImage src="/works/car.png" alt="Channel1" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>Channel1</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>A Sonic</p>
                 </div>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/batch.png" alt="Expro One" width={24} height={24} className='w-6 md:w-12' />
+                    <CustomImage src="/works/batch.png" alt="Expro One" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>Expro One</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>600 Hz</p>
                 </div>
                 <div className='bg-[#E1EEFB] p-4 rounded-lg'>
                   <div className='bg-[#003366] rounded-full p-1 md:p-3 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center'>
-                    <Image src="/works/dashboard.png" alt="MacSonic" width={24} height={24} className='w-6 md:w-12' />
+                    <CustomImage src="/works/dashboard.png" alt="MacSonic" width={24} height={24} className='w-6 md:w-12' />
                   </div>
                   <h1 className='text-[#036] text-[12px] md:text-[16px] font-[600] mt-2'>MacSonic</h1>
                   <p className='text-[#4A4C56] text-[10px] md:text-[12px]'>400 km/h</p>
@@ -148,8 +207,8 @@ export default function HowWorks() {
         </div>
 
         {/* right side */}
-        <div className='flex-1 w-full lg:w-[50%] flex flex-col'>
-          <div className='hidden md:block'>
+        <div className='flex-1 w-full lg:w-[50%] flex flex-col' ref={stepsRef}>
+          <div className='hidden md:block' ref={titleRef}>
             <h1 className='text-[#036] text-[40px] xl:text-[48px] font-[700] leading-[57px] font-syne mb-4 flex-grow-0'>How It Works</h1>
             <p className='text-[#4A4C56] text-[14px] md:text-[18px] font-[400] leading-[25px] mb-8 flex-grow-0'>
               Our mission is to simplify transportation for businesses with well-maintained, comfortable vehicles and a Corporate Car Management System designed to streamline operations.
