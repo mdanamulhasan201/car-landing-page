@@ -136,7 +136,7 @@ export default function WhoWeAre() {
                             <li className='text-[#4A4C56] text-[14px] leading-[21px] md:leading-[27px] md:text-[18px] font-[400px] font-nunito-sans'><span className='text-[#1978D8] font-[600px]'>Simplifying Fleet Management</span> — A technology-driven approach that saves time, reduces costs, and streamlines operations.</li>
 
                             <li className='text-[#4A4C56] text-[14px] leading-[21px] md:leading-[27px] md:text-[18px] font-[400px] font-nunito-sans'>
-                                <span className='text-[#1978D8] font-[600px]'>Driving Economic Growth</span> — Expanding partnerships that create jobs, boost revenue, and strengthen Metro Detroit's economy.
+                                <span className='text-[#1978D8] font-[600px]'>Driving Economic Growth</span> — Expanding partnerships that create jobs, boost revenue, and strengthen Metro Detroit&apos;s economy.
                             </li>
                         </ul>
                     </div>

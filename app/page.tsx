@@ -5,8 +5,9 @@ import React from 'react'
 import SuccessStories from '@/components/success-stories/SuccessStories'
 import Success from '@/components/success/Success'
 import ChoosePlan from '@/components/choose-plan/ChoosePlan'
-import WhyChoose from '@/components/WhyChoose'
+
 import ContactUs from '@/components/contact-us/ContactUs'
+import WhyChoose from '@/components/why-choose/WhyChoose'
 
 export default function Home() {
   return (

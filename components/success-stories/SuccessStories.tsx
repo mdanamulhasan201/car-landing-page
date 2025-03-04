@@ -11,8 +11,18 @@ import bgImg from '@/public/successStories/bgImage.png'
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
+// Add this interface before the component
+interface SuccessStory {
+  title: string;
+  description: string;
+  image: string;
+  user: string;
+  position: string;
+  company: string;
+}
+
 export default function SuccessStories() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<SuccessStory[]>([])
   const [activeSlide, setActiveSlide] = useState(0)
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
@@ -72,7 +82,7 @@ export default function SuccessStories() {
   }
 
   // Custom dots component
-  const CustomDots = ({ slides, currentSlide }: { slides: any[], currentSlide: number }) => {
+  const CustomDots = ({ slides, currentSlide }: { slides: SuccessStory[], currentSlide: number }) => {
     const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
     React.useEffect(() => {
@@ -166,38 +176,34 @@ export default function SuccessStories() {
           >
             {data.map((story, index) => (
               <div key={index} className="px-3 pt-2 pb-16">
-                {/* Speech bubble style card */}
                 <div className="relative">
-                  {/* Main card */}
                   <div className="bg-[#BEDAF7] rounded-lg p-6 md:p-8 mb-6 relative">
                     <h3 className="text-center text-[20px] font-[700] text-[#0F1016] mb-4">
-                      "{(story as any)?.title}"
+                      &ldquo;{story.title}&rdquo;
                     </h3>
                     <p className="text-[#1D1F2C] opacity-[0.7] leading-[28px] font-font-nunito-sans text-center mb-2 text-[18px] font-[400]">
-                      {(story as any)?.description}
+                      {story.description}
                     </p>
 
                     {/* Triangle pointer */}
-                    <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-t-[#BEDAF7] border-l-transparent border-r-transparent"></div>
                   </div>
 
-                  {/* User info below the card */}
-                  <div className="flex  items-center justify-center">
+                  <div className="flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full overflow-hidden mb-2 flex-shrink-0 bg-gray-200 border-2 border-white shadow-md">
-                      {(story as any)?.image && (
+                      {story.image && (
                         <Image
                           width={100}
                           height={100}
-                          src={(story as any)?.image}
-                          alt={(story as any)?.user}
+                          src={story.image}
+                          alt={story.user}
                           className="w-[62px] h-full "
                         />
                       )}
                     </div>
                     <div className="ms-2">
-                      <h4 className="text-[20px] font-[600] font-syne text-[#1D1F2C]">{(story as any)?.user}</h4>
+                      <h4 className="text-[20px] font-[600] font-syne text-[#1D1F2C]">{story.user}</h4>
                       <p className="text-[#4A4C56] text-[16px] font-[400] font-nunito-sans opacity-[0.5]">
-                        {(story as any).position}, {(story as any)?.company}
+                        {story.position}, {story.company}
                       </p>
                     </div>
                   </div>

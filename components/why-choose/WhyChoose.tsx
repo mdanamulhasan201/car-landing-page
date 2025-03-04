@@ -2,8 +2,8 @@
 import React from 'react'
 import { DollarSign, Package, Shuffle } from 'lucide-react'
 import carLogo from '@/public/chooseUs/car.png'
-import Image from 'next/image'
-import CustomImage from './Reusable/CustomImage'
+import CustomImage from '../Reusable/CustomImage'
+
 
 export default function WhyChoose() {
     return (

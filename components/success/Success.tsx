@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState, useRef, useCallback } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,17 +20,6 @@ export default function Success() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [windowWidth, setWindowWidth] = useState(0)
     const sliderRef = useRef<Slider | null>(null)
-
-    // Remove autoplay-related code and simplify slide functions
-    const goToSlide = useCallback((index: number) => {
-        const validIndex = Math.max(0, Math.min(index, data.length - 1));
-        setCurrentIndex(validIndex);
-    }, [data.length]);
-
-    const goToNextSlide = useCallback(() => {
-        const nextIndex = (currentIndex + 1) % data.length;
-        goToSlide(nextIndex);
-    }, [currentIndex, data.length, goToSlide]);
 
     // Keep only necessary useEffects
     useEffect(() => {
@@ -59,18 +48,14 @@ export default function Success() {
     }, []);
 
     // Determine how many items to show based on current window width
-    const getItemsPerView = () => {
-        if (windowWidth < 768) return 1;
-        if (windowWidth < 1024) return 2;
-        return 3;
-    }
+ 
 
     // Don't render anything until data is loaded
     if (data.length === 0 || windowWidth === 0) {
         return <div className="container py-10">Loading...</div>
     }
 
-    const itemsPerView = getItemsPerView();
+
 
     // Remove the misplaced JSX and unused variables
     const settings: Settings = {
@@ -122,7 +107,7 @@ export default function Success() {
                 </div>
                 <div className='w-full md:w-4/12'>
                     <p className='font-nunito-sans text-[18px] font-[400] leading-[27px] text-[#4A4C56]'>
-                        We're transforming corporate transportation with energy-efficient vehicles and
+                        We&apos;re transforming corporate transportation with energy-efficient vehicles and
                         sustainable practices, reducing environmental impact while meeting business needs.
                     </p>
                 </div>
