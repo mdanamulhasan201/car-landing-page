@@ -14,7 +14,6 @@ interface CarouselItem {
     image: string;
     icon?: string;
 }
-
 export default function Success() {
     const [data, setData] = useState<CarouselItem[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -26,12 +25,10 @@ export default function Success() {
         const handleResize = () => {
             setWindowWidth(window.innerWidth)
         }
-
         if (typeof window !== 'undefined') {
             setWindowWidth(window.innerWidth)
             window.addEventListener('resize', handleResize)
         }
-
         return () => {
             if (typeof window !== 'undefined') {
                 window.removeEventListener('resize', handleResize)
@@ -39,25 +36,27 @@ export default function Success() {
         }
     }, []);
 
-    // Remove this useEffect block entirely as it's related to autoplay
     useEffect(() => {
-        fetch('/data/carousel.json')
-            .then(res => res.json())
-            .then(data => setData(data))
-            .catch(err => console.error("Error loading carousel data:", err))
+        fetchData()
     }, []);
+    const fetchData = async () => {
+        try {
+            const response = await fetch('/data/carousel.json');
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.error("Error loading carousel data:", error);
+        }
+    };
 
-    // Determine how many items to show based on current window width
- 
+
+
 
     // Don't render anything until data is loaded
     if (data.length === 0 || windowWidth === 0) {
-        return <div className="container py-10">Loading...</div>
+        return <div className="container text-center  py-10">Loading...</div>
     }
 
-
-
-    // Remove the misplaced JSX and unused variables
     const settings: Settings = {
         dots: false,
         infinite: true,

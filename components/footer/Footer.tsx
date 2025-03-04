@@ -34,7 +34,7 @@ export default function Footer() {
                     </div>
                     {/* Newsletter Section */}
                     <div className="md:col-span-4">
-                        <h3 className="text-[#1D1F2C] text-[18px] font-[600] mb-6 font-syne">Newsletter</h3>
+
                         <div className="md:col-span-4">
                             <h3 className="text-[#1D1F2C] text-[18px] font-[600] mb-6 font-syne">Newsletter</h3>
                             <div className="flex  items-stretch md:items-center gap-2 md:gap-0 rounded-[8px] p-1 border border-[#BEDAF7]">
