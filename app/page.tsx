@@ -7,6 +7,7 @@ import SuccessStories from '@/components/success-stories/SuccessStories'
 import Success from '@/components/success/Success'
 import ChoosePlan from '@/components/choose-plan/ChoosePlan'
 import WhyChoose from '@/components/WhyChoose'
+import ContactUs from '@/components/contact-us/ContactUs'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <SuccessStories />
       <ChoosePlan />
       <WhyChoose />
+      <ContactUs/>
     </>
   )
 }
