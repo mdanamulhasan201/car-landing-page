@@ -91,9 +91,11 @@ export default function SuccessStories() {
         {Array.from({ length: slides.length }).map((_, i) => (
           <button
             key={i}
-            ref={el => buttonRefs.current[i] = el}
+            ref={(el: HTMLButtonElement | null): void => {
+              buttonRefs.current[i] = el;
+            }}
             className={`h-[10px] cursor-pointer rounded-full transition-colors duration-300 bg-[#BEDAF7]`}
-            onClick={() => sliderRef.slickGoTo(i)}
+            onClick={() => sliderRef?.slickGoTo(i)}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
@@ -132,7 +134,7 @@ export default function SuccessStories() {
   }
 
   return (
-    <div className="relative pb-48 " ref={sectionRef}> 
+    <div className="relative pb-48 " ref={sectionRef}>
       {/* Background Image Container */}
       <div
         className="absolute inset-0 w-full h-full bg-no-repeat bg-center
@@ -147,8 +149,8 @@ export default function SuccessStories() {
         }}
       ></div>
 
-      <div className="container top-20 mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> 
-        <h2 
+      <div className="container top-20 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2
           ref={titleRef}
           className="text-[24px] md:text-[48px] font-[700] text-[#036] text-center mb-10 font-syne"
         >
@@ -156,7 +158,12 @@ export default function SuccessStories() {
         </h2>
 
         <div className="relative" ref={sliderContainerRef}>
-          <Slider ref={(slider: Slider | null) => (sliderRef = slider)} {...settings}>
+          <Slider
+            ref={(slider: Slider | null): void => {
+              sliderRef = slider;
+            }}
+            {...settings}
+          >
             {data.map((story, index) => (
               <div key={index} className="px-3 pt-2 pb-16">
                 {/* Speech bubble style card */}

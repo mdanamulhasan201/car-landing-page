@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Check, CheckCircle, DollarSign } from 'lucide-react'
+import { Check, DollarSign } from 'lucide-react'
 import { Button } from '../ui/button'
 
 export default function ChoosePlan() {

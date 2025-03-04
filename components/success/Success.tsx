@@ -1,9 +1,10 @@
 'use client'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CustomImage from '../Reusable/CustomImage';
 
 // Define the type for carousel items
 interface CarouselItem {
@@ -18,18 +19,25 @@ export default function Success() {
     const [data, setData] = useState<CarouselItem[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [windowWidth, setWindowWidth] = useState(0)
-    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
     const sliderRef = useRef<Slider | null>(null)
-    const [autoplay, setAutoplay] = useState()
-    const autoplaySpeed = 4000
 
-    // Get window width on initial render and when window resizes
+    // Remove autoplay-related code and simplify slide functions
+    const goToSlide = useCallback((index: number) => {
+        const validIndex = Math.max(0, Math.min(index, data.length - 1));
+        setCurrentIndex(validIndex);
+    }, [data.length]);
+
+    const goToNextSlide = useCallback(() => {
+        const nextIndex = (currentIndex + 1) % data.length;
+        goToSlide(nextIndex);
+    }, [currentIndex, data.length, goToSlide]);
+
+    // Keep only necessary useEffects
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth)
         }
 
-        // Set initial width
         if (typeof window !== 'undefined') {
             setWindowWidth(window.innerWidth)
             window.addEventListener('resize', handleResize)
@@ -40,48 +48,15 @@ export default function Success() {
                 window.removeEventListener('resize', handleResize)
             }
         }
-    }, [])
+    }, []);
 
+    // Remove this useEffect block entirely as it's related to autoplay
     useEffect(() => {
-        // Fetch data
         fetch('/data/carousel.json')
             .then(res => res.json())
             .then(data => setData(data))
             .catch(err => console.error("Error loading carousel data:", err))
-    }, [])
-
-    useEffect(() => {
-        // Set up autoplay with interval based on autoplaySpeed
-        if (data.length > 0 && autoplay) {
-            timerRef.current = setInterval(() => {
-                goToNextSlide()
-            }, autoplaySpeed)
-        }
-
-        // Clean up timer on unmount
-        return () => {
-            if (timerRef.current) {
-                clearInterval(timerRef.current)
-            }
-        }
-    }, [data.length, autoplay])
-
-    const goToSlide = (index: number) => {
-        const validIndex = Math.max(0, Math.min(index, data.length - 1));
-        setCurrentIndex(validIndex);
-        // Reset timer when manually changing slides
-        if (timerRef.current) {
-            clearInterval(timerRef.current);
-            timerRef.current = setInterval(() => {
-                goToNextSlide();
-            }, autoplaySpeed);
-        }
-    };
-
-    const goToNextSlide = () => {
-        const nextIndex = (currentIndex + 1) % data.length;
-        goToSlide(nextIndex);
-    };
+    }, []);
 
     // Determine how many items to show based on current window width
     const getItemsPerView = () => {
@@ -90,20 +65,14 @@ export default function Success() {
         return 3;
     }
 
-    // Calculate progress percentage for the progress bar
-    const progressPercentage = data.length > 0
-        ? ((currentIndex) / (Math.max(1, data.length - getItemsPerView()))) * 100
-        : 0;
-
     // Don't render anything until data is loaded
     if (data.length === 0 || windowWidth === 0) {
         return <div className="container py-10">Loading...</div>
     }
 
     const itemsPerView = getItemsPerView();
-    const slideWidth = 100 / itemsPerView;
 
-    // Slick settings
+    // Remove the misplaced JSX and unused variables
     const settings: Settings = {
         dots: false,
         infinite: true,
@@ -111,7 +80,6 @@ export default function Success() {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: false,
-        autoplaySpeed: 4000,
         responsive: [
             {
                 breakpoint: 1440,
@@ -168,7 +136,7 @@ export default function Success() {
                             <div className={`bg-[#036] p-6 rounded-lg shadow-md w-full md:h-96 xl:h-72 transition-all duration-300 transform hover:scale-105 ${currentIndex === index ? 'bg-[#036] text-white' : 'bg-white text-black'}`}>
                                 <div className='mb-4'>
                                     <div className={`w-16 h-16 rounded-full flex items-center justify-center ${currentIndex === index ? 'bg-[#365e86]' : 'bg-[#003366]'}`}>
-                                        <img
+                                        <CustomImage
                                             src={item.image || '/icons/placeholder-icon.svg'}
                                             alt={item.title}
                                             className="w-8 h-8"

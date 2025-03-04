@@ -1,15 +1,14 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import roundedLine from '@/public/works/Ellipse.png'
 
 export default function HowWorks() {
-
   const [activeStep, setActiveStep] = useState(1);
   const descriptionRefs = useRef<HTMLDivElement[]>([]);
 
-  const stepsData = [
+  const stepsData = useMemo(() => [
     {
       id: 1,
       title: "Book a Consultation",
@@ -35,7 +34,7 @@ export default function HowWorks() {
       title: "Manage Billing & Support",
       description: "Access billing information and get support whenever you need it."
     }
-  ];
+  ], []); // Empty dependency array since data is static
 
   const handleStepClick = (stepNumber: number) => {
     if (activeStep === stepNumber) {
@@ -178,7 +177,11 @@ export default function HowWorks() {
                           {step.title}
                         </h2>
                         <div
-                          ref={el => descriptionRefs.current[index] = el as HTMLDivElement}
+                          ref={(el: HTMLDivElement | null): void => {
+                            if (el) {
+                              descriptionRefs.current[index] = el;
+                            }
+                          }}
                           style={{ overflow: 'hidden', height: activeStep === step.id ? 'auto' : 0, opacity: activeStep === step.id ? 1 : 0 }}
                         >
                           <p className={`${activeStep === step.id ? 'text-[#E9E9EA] text-[16px] xl:text-[18px] font-[400] leading-[25px]' : ''}`}>

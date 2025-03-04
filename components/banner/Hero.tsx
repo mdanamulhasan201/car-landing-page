@@ -11,13 +11,13 @@ import Image from 'next/image'
 export default function Hero() {
     return (
         <div className='relative flex flex-col text-center text-white'>
-            <Image
-                src={carBg}
+            <CustomImage
+                src={carBg.src}
                 alt="image"
                 width={1920}
                 height={900}
                 className="w-full bg-cover bg-center h-[500px] md:h-[600px]  lg:h-full z-10"
-                priority
+                
             />
             <div className='pt-5 absolute top-0 left-0 right-0 z-20'>
                 <Navbar />

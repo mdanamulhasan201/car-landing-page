@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito, Nunito_Sans, Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/footer/Footer";
 
 const syne = Syne({
@@ -34,7 +33,6 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${nunito.variable} ${nunitoSans.variable} antialiased`}
       >
-        {/* <Navbar /> */}
         {children}
         <Footer />
       </body>

@@ -1,4 +1,3 @@
-// import Banner from '@/components/banner/Banner'
 import Hero from '@/components/banner/Hero'
 import HowWorks from '@/components/how-works/HowWroks'
 import WhoWeAre from '@/components/who-we-are/WhoWeAre'

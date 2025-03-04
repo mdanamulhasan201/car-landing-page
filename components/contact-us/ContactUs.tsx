@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { ChevronUp, Send } from 'lucide-react'
-import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import carImage from '@/public/contact/carImage.png'
 import CustomImage from '../Reusable/CustomImage'
@@ -75,7 +74,7 @@ export default function ContactUs() {
 
     const onSubmit = (data: FormData) => {
         console.log(data)
-        reset() // Clear form after submission
+        reset() 
     }
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -110,7 +109,7 @@ export default function ContactUs() {
                         </button>
                     </div>
                     {isFormOpen && (
-                        // Update the form render condition to always render but control visibility with GSAP
+                        
                         <form 
                             ref={formRef} 
                             onSubmit={handleSubmit(onSubmit)} 
