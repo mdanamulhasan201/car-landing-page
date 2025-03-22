@@ -136,7 +136,7 @@ export default function ContactUs() {
         }
     }
     return (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-40 md:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 {/* Left side - Image */}
                 <div ref={imageRef} className="rounded-lg overflow-hidden lg:h-[600px] flex items-center">
